@@ -1,0 +1,11 @@
+C:\Users\jogzfon\OneDrive - Cebu Institute of Technology University\Documents\C#\RSCSS\RSCSS\bin\Debug\RSCSS.exe.config
+C:\Users\jogzfon\OneDrive - Cebu Institute of Technology University\Documents\C#\RSCSS\RSCSS\bin\Debug\RSCSS.exe
+C:\Users\jogzfon\OneDrive - Cebu Institute of Technology University\Documents\C#\RSCSS\RSCSS\bin\Debug\RSCSS.pdb
+C:\Users\jogzfon\OneDrive - Cebu Institute of Technology University\Documents\C#\RSCSS\RSCSS\obj\Debug\RSCSS.csproj.AssemblyReference.cache
+C:\Users\jogzfon\OneDrive - Cebu Institute of Technology University\Documents\C#\RSCSS\RSCSS\obj\Debug\RSCSS.Form1.resources
+C:\Users\jogzfon\OneDrive - Cebu Institute of Technology University\Documents\C#\RSCSS\RSCSS\obj\Debug\RSCSS.Properties.Resources.resources
+C:\Users\jogzfon\OneDrive - Cebu Institute of Technology University\Documents\C#\RSCSS\RSCSS\obj\Debug\RSCSS.csproj.GenerateResource.cache
+C:\Users\jogzfon\OneDrive - Cebu Institute of Technology University\Documents\C#\RSCSS\RSCSS\obj\Debug\RSCSS.csproj.CoreCompileInputs.cache
+C:\Users\jogzfon\OneDrive - Cebu Institute of Technology University\Documents\C#\RSCSS\RSCSS\obj\Debug\RSCSS.exe
+C:\Users\jogzfon\OneDrive - Cebu Institute of Technology University\Documents\C#\RSCSS\RSCSS\obj\Debug\RSCSS.pdb
+C:\Users\jogzfon\OneDrive - Cebu Institute of Technology University\Documents\C#\RSCSS\RSCSS\obj\Debug\RSCSS.AssemblyResultsDialog.resources
