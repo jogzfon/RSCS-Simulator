@@ -42,5 +42,10 @@ namespace RSCSS
             textBox2.Text = "";
             memory.UpdateMemoryTextBox(textBox2);
         }
+
+        private void ClearMemoryAndIO(object sender, EventArgs e)
+        {
+            memory.Clear();
+        }
     }
 }

@@ -67,20 +67,20 @@ namespace RSCSS
                         {
                             errorCount++;
                             assemblyErrorList.Add(new AssemblyError(
-                               lineIndex, "ORG expects one operand"));
+                               lineIndex, tokens[0 + offset]+ ": ORG expects one operand"));
                         }
                         else if (tokens.Length - offset > 2)
                         {
                             errorCount++;
                             assemblyErrorList.Add(new AssemblyError(
-                               lineIndex, "ORG does not accept more than one " +
+                               lineIndex, tokens[0 + offset] + ": ORG does not accept more than one " +
                                "operand"));
                         }
                         else if (!AssemblyInstructions.isAddress(tokens[1 + offset]))
                         {
                             errorCount++;
                             assemblyErrorList.Add(new AssemblyError(
-                               lineIndex, "Specified address is invalid"));
+                               lineIndex, tokens[0 + offset] + ": Specified address is invalid"));
                         }
 
                     }
@@ -91,13 +91,13 @@ namespace RSCSS
                         {
                             errorCount++;
                             assemblyErrorList.Add(new AssemblyError(
-                               lineIndex, "DB expects one operand"));
+                               lineIndex, tokens[0 + offset] + ": DB expects one operand"));
                         }
                         else if (tokens.Length - offset > 2)
                         {
                             errorCount++;
                             assemblyErrorList.Add(new AssemblyError(
-                               lineIndex, "DB does not accept more than one " +
+                               lineIndex, tokens[0 + offset] + ": DB does not accept more than one " +
                                "operand"));
                         }
                         else if (AssemblyInstructions.ToByteShort(tokens[1 + offset]) ==
@@ -105,7 +105,7 @@ namespace RSCSS
                         {
                             errorCount++;
                             assemblyErrorList.Add(new AssemblyError(
-                               lineIndex, "Specified byte constant is invalid"));
+                               lineIndex, tokens[0 + offset] + ": Specified byte constant is invalid"));
                         }
 
                     }
@@ -116,13 +116,13 @@ namespace RSCSS
                         {
                             errorCount++;
                             assemblyErrorList.Add(new AssemblyError(
-                               lineIndex, "DW expects one operand"));
+                               lineIndex, tokens[0 + offset] + ": DW expects one operand"));
                         }
                         else if (tokens.Length - offset > 2)
                         {
                             errorCount++;
                             assemblyErrorList.Add(new AssemblyError(
-                               lineIndex, "DW does not accept more than one " +
+                               lineIndex, tokens[0 + offset] + ": DW does not accept more than one " +
                                "operand"));
                         }
                         else if (AssemblyInstructions.ToWordInteger(tokens[1 + offset])
@@ -130,7 +130,7 @@ namespace RSCSS
                         {
                             errorCount++;
                             assemblyErrorList.Add(new AssemblyError(
-                               lineIndex, "Specified word constant is invalid"));
+                               lineIndex, tokens[0 + offset] + ": Specified word constant is invalid"));
                         }
 
                     }
@@ -159,7 +159,7 @@ namespace RSCSS
                             {
                                 errorCount++;
                                 assemblyErrorList.Add(new AssemblyError(
-                                   lineIndex, "Specified address is invalid"));
+                                   lineIndex, tokens[0 + offset].ToUpper() + " Specified address is invalid"));
                             }
 
                         }
@@ -181,7 +181,7 @@ namespace RSCSS
                     {
                         errorCount++;
                         assemblyErrorList.Add(new AssemblyError(
-                           lineIndex, "Specified mnemonic is invalid"));
+                           lineIndex, tokens[0 + offset] + ": Specified mnemonic is invalid"));
                     }
                 }
             }

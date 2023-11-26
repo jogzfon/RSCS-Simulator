@@ -54,6 +54,7 @@
             this.label21 = new System.Windows.Forms.Label();
             this.memLocation = new System.Windows.Forms.TextBox();
             this.btn_memory = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // InstructionCode
@@ -318,17 +319,30 @@
             this.btn_memory.Font = new System.Drawing.Font("Stencil", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_memory.Location = new System.Drawing.Point(408, 599);
             this.btn_memory.Name = "btn_memory";
-            this.btn_memory.Size = new System.Drawing.Size(200, 50);
+            this.btn_memory.Size = new System.Drawing.Size(105, 50);
             this.btn_memory.TabIndex = 25;
-            this.btn_memory.Text = "MemoryView";
+            this.btn_memory.Text = "MemoryView AND I/O";
             this.btn_memory.UseVisualStyleBackColor = false;
             this.btn_memory.Click += new System.EventHandler(this.btn_memoryView);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button2.Font = new System.Drawing.Font("Stencil", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(523, 599);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(113, 50);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "Clear Memory And I/O";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.ClearMemoryAndIO);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1062, 673);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.btn_memory);
             this.Controls.Add(this.memLocation);
             this.Controls.Add(this.label21);
@@ -390,6 +404,7 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox memLocation;
         private System.Windows.Forms.Button btn_memory;
+        private System.Windows.Forms.Button button2;
     }
 }
 

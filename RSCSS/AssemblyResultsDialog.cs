@@ -9,10 +9,13 @@ using System.Windows.Forms;
 
 namespace RSCSS
 {
-    public class AssemblyResultsDialog : Form
+    public partial class AssemblyResultsDialog : Form
     {
         private Button okButton;
-
+        public AssemblyResultsDialog()
+        {
+            InitializeComponent();
+        }
         public AssemblyResultsDialog(Form parent, string title, bool modal, AssemblyResults results)
         {
             Text = title;
