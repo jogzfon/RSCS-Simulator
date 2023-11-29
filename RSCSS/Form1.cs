@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace RSCSS
 {
@@ -18,9 +19,13 @@ namespace RSCSS
         public Box box = new Box();
         public Memory memory = new Memory();
 
+        //Breakpoints
+        private List<string> breakpointList;
+
         public Form1()
         {
             InitializeComponent();
+            breakpointList = new List<string>();
         }
         private void Assembler(object sender, EventArgs e)
         {
@@ -35,6 +40,10 @@ namespace RSCSS
                 textBox2.Text += errors[i].GetString() + Environment.NewLine;
                 i++;
             }
+            if(errors.Length <= 0)
+            {
+                MessageBox.Show("Assembly Successful.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btn_memoryView(object sender, EventArgs e)
@@ -46,6 +55,51 @@ namespace RSCSS
         private void ClearMemoryAndIO(object sender, EventArgs e)
         {
             memory.Clear();
+            textBox2.Clear();
+            memory.UpdateMemoryTextBox(textBox2);
+        }
+
+        //BreakPoints Start
+        public bool hasBreakpoint(string address)
+        {
+
+            if (breakpointList.Count <=0)
+            {
+                return (false);
+            }
+            else
+            {
+                return breakpointList.Contains(address);
+            }
+
+        }
+        public void removeAllBreakpoints()
+        {
+            breakpointList.Clear();
+        }
+
+        private void Delete_Breakpoint(object sender, EventArgs e)
+        {
+            if(breakBox.SelectedItem != null)
+            {
+                breakpointList.Remove(breakBox.SelectedItem.ToString());
+                breakBox.Items.Remove(breakBox.SelectedItem.ToString());
+            }
+        }
+
+        private void Add_Breakpoint(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(breakLine.Text))
+            {
+                breakpointList.Add(breakLine.Text);
+                breakBox.Items.Add(breakLine.Text);
+                breakLine.Clear();
+                
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid breakpoint.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

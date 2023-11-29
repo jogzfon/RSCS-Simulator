@@ -55,6 +55,13 @@
             this.memLocation = new System.Windows.Forms.TextBox();
             this.btn_memory = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.label22 = new System.Windows.Forms.Label();
+            this.deleteBtn = new System.Windows.Forms.Button();
+            this.addBtn = new System.Windows.Forms.Button();
+            this.breakLine = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
+            this.breakBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // InstructionCode
@@ -337,11 +344,90 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.ClearMemoryAndIO);
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(1046, 85);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(121, 25);
+            this.label22.TabIndex = 27;
+            this.label22.Text = "Breakpoints:";
+            // 
+            // deleteBtn
+            // 
+            this.deleteBtn.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.deleteBtn.Font = new System.Drawing.Font("Stencil", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteBtn.Location = new System.Drawing.Point(1278, 150);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(113, 50);
+            this.deleteBtn.TabIndex = 28;
+            this.deleteBtn.Text = "Delete";
+            this.deleteBtn.UseVisualStyleBackColor = false;
+            this.deleteBtn.Click += new System.EventHandler(this.Delete_Breakpoint);
+            // 
+            // addBtn
+            // 
+            this.addBtn.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.addBtn.Font = new System.Drawing.Font("Stencil", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addBtn.Location = new System.Drawing.Point(1278, 206);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(113, 50);
+            this.addBtn.TabIndex = 29;
+            this.addBtn.Text = "Add";
+            this.addBtn.UseVisualStyleBackColor = false;
+            this.addBtn.Click += new System.EventHandler(this.Add_Breakpoint);
+            // 
+            // breakLine
+            // 
+            this.breakLine.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.breakLine.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.breakLine.ForeColor = System.Drawing.SystemColors.Window;
+            this.breakLine.Location = new System.Drawing.Point(1178, 284);
+            this.breakLine.Multiline = true;
+            this.breakLine.Name = "breakLine";
+            this.breakLine.Size = new System.Drawing.Size(213, 37);
+            this.breakLine.TabIndex = 30;
+            this.breakLine.Text = "0";
+            this.breakLine.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(1012, 287);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(155, 25);
+            this.label23.TabIndex = 31;
+            this.label23.Text = "Address or Line:";
+            // 
+            // vScrollBar1
+            // 
+            this.vScrollBar1.Location = new System.Drawing.Point(1217, 130);
+            this.vScrollBar1.Name = "vScrollBar1";
+            this.vScrollBar1.Size = new System.Drawing.Size(22, 148);
+            this.vScrollBar1.TabIndex = 33;
+            // 
+            // breakBox
+            // 
+            this.breakBox.FormattingEnabled = true;
+            this.breakBox.ItemHeight = 16;
+            this.breakBox.Location = new System.Drawing.Point(1037, 130);
+            this.breakBox.Name = "breakBox";
+            this.breakBox.Size = new System.Drawing.Size(202, 148);
+            this.breakBox.TabIndex = 34;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1062, 673);
+            this.ClientSize = new System.Drawing.Size(1416, 673);
+            this.Controls.Add(this.vScrollBar1);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.breakLine);
+            this.Controls.Add(this.addBtn);
+            this.Controls.Add(this.deleteBtn);
+            this.Controls.Add(this.label22);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btn_memory);
             this.Controls.Add(this.memLocation);
@@ -369,6 +455,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.InstructionCode);
+            this.Controls.Add(this.breakBox);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -405,6 +492,13 @@
         private System.Windows.Forms.TextBox memLocation;
         private System.Windows.Forms.Button btn_memory;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Button deleteBtn;
+        private System.Windows.Forms.Button addBtn;
+        private System.Windows.Forms.TextBox breakLine;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.VScrollBar vScrollBar1;
+        private System.Windows.Forms.ListBox breakBox;
     }
 }
 

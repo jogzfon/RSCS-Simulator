@@ -80,7 +80,7 @@ namespace RSCSS
                         {
                             errorCount++;
                             assemblyErrorList.Add(new AssemblyError(
-                               lineIndex, tokens[0 + offset] + ": Specified address is invalid"));
+                               lineIndex, tokens[1 + offset] + ": Specified address is invalid"));
                         }
 
                     }
@@ -105,7 +105,7 @@ namespace RSCSS
                         {
                             errorCount++;
                             assemblyErrorList.Add(new AssemblyError(
-                               lineIndex, tokens[0 + offset] + ": Specified byte constant is invalid"));
+                               lineIndex, tokens[1 + offset] + ": Specified byte constant is invalid"));
                         }
 
                     }
@@ -130,7 +130,7 @@ namespace RSCSS
                         {
                             errorCount++;
                             assemblyErrorList.Add(new AssemblyError(
-                               lineIndex, tokens[0 + offset] + ": Specified word constant is invalid"));
+                               lineIndex, tokens[1 + offset] + ": Specified word constant is invalid"));
                         }
 
                     }
@@ -159,7 +159,7 @@ namespace RSCSS
                             {
                                 errorCount++;
                                 assemblyErrorList.Add(new AssemblyError(
-                                   lineIndex, tokens[0 + offset].ToUpper() + " Specified address is invalid"));
+                                   lineIndex, tokens[1 + offset].ToUpper() + " Specified address is invalid"));
                             }
 
                         }
@@ -306,7 +306,7 @@ namespace RSCSS
 
             AssemblyError[] assemblyErrors = assemblyErrorList.ToArray();
 
-            MessageBox.Show("Assembly Complete", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show("Assembly Complete", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             //box.ShowStatus("Assembly Complete");
             return new AssemblyResults(assemblyErrors, code);
         }

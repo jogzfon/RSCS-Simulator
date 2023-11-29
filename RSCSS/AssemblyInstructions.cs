@@ -177,7 +177,7 @@ namespace RSCSS
                     instruction[0].Equals(OR, StringComparison.OrdinalIgnoreCase) ||
                     instruction[0].Equals(XOR, StringComparison.OrdinalIgnoreCase) ||
                     instruction[0].Equals(NOT, StringComparison.OrdinalIgnoreCase) ||
-                    instruction[0].Equals(END, StringComparison.OrdinalIgnoreCase)) && instruction.Length < 2)
+                    instruction[0].Equals(END, StringComparison.OrdinalIgnoreCase)) && (instruction.Length < 2))
                 {
                     short[] instructionCode = new short[1];
                     instructionCode[0] = ToMnemonicCode(instruction[0]);
@@ -206,8 +206,7 @@ namespace RSCSS
 
             if (isAddress(address))
             {
-                short[] codeByteArray = { ( short ) ( address % 0x100 ), ( short )
-            ( ( address / 0x100 ) % 0x100 ) };
+                short[] codeByteArray = { ( short ) ( address % 0x100 ), ( short ) ( ( address / 0x100 ) % 0x100 ) };
 
                 return (codeByteArray);
             }
@@ -235,15 +234,28 @@ namespace RSCSS
                     addressRadix = 10;
                 }
 
-                if (int.TryParse(addressString + addressRadix, out address))
+                try
                 {
-                    if (isAddress(address))
-                    {
-                        return address;
-                    }
+                    address = Convert.ToInt32(addressString, addressRadix);
+                }
+                catch (FormatException e)
+                {
+                    return -1;
                 }
             }
-            return -1;
+            else
+            {
+                return (-1);
+            }
+
+            if (isAddress(address))
+            {
+                return (address);
+            }
+            else
+            {
+                return (-1);
+            }
         }
 
         public static bool IsValidOperands(string mnemonic, string[] operands)
@@ -320,16 +332,28 @@ namespace RSCSS
                     byteRadix = 10;
                 }
 
-                if (short.TryParse(byteString + byteRadix, out byteShort))
+                try
                 {
-                    if (isByte(byteShort))
-                    {
-                        return byteShort;
-                    }
+                    byteShort = Convert.ToInt16(byteString, byteRadix);
+                }
+                catch (FormatException e)
+                {
+                    return -1;
                 }
             }
+            else
+            {
+                return -1;
+            }
 
-            return -1;
+            if (isByte(byteShort))
+            {
+                return (byteShort);
+            }
+            else
+            {
+                return (-1);
+            }
         }
 
         public static int ToWordInteger(string wordString)
@@ -350,16 +374,28 @@ namespace RSCSS
                     wordRadix = 10;
                 }
 
-                if (int.TryParse(wordString + wordRadix, out wordInteger))
+                try
                 {
-                    if (isWord(wordInteger))
-                    {
-                        return wordInteger;
-                    }
+                    wordInteger = Convert.ToInt32(wordString, wordRadix);
+                }
+                catch (FormatException e)
+                {
+                    return -1;
                 }
             }
+            else
+            {
+                return -1;
+            }
 
-            return -1;
+            if (isWord(wordInteger))
+            {
+                return (wordInteger);
+            }
+            else
+            {
+                return (-1);
+            }
         }
 
 
