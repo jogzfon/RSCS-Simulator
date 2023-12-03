@@ -15,10 +15,12 @@ namespace RSCSS
     public partial class Form1 : Form
     {
         public Assembler assembler = new Assembler();
-        public CPU cpu = new CPU();
+        public CPU cpu;
         public Box box = new Box();
         public Memory memory = new Memory();
 
+        //Memory
+        private bool isHex = false;
         //Breakpoints
         private List<string> breakpointList;
 
@@ -26,6 +28,7 @@ namespace RSCSS
         {
             InitializeComponent();
             breakpointList = new List<string>();
+            cpu = new CPU(status_txt, rtl_txt, datamove_txt, ar_txt, pc_txt, dr_txt, tr_txt, ir_txt, r_txt, ac_txt, z_txt);
         }
         private void Assembler(object sender, EventArgs e)
         {
@@ -45,18 +48,31 @@ namespace RSCSS
                 MessageBox.Show("Assembly Successful.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
+        //Memory and I/O
         private void btn_memoryView(object sender, EventArgs e)
         {
             textBox2.Text = "";
-            memory.UpdateMemoryTextBox(textBox2);
+            memory.UpdateMemoryTextBox(textBox2, isHex);
         }
 
         private void ClearMemoryAndIO(object sender, EventArgs e)
         {
             memory.Clear();
             textBox2.Clear();
-            memory.UpdateMemoryTextBox(textBox2);
+            memory.UpdateMemoryTextBox(textBox2, isHex);
+        }
+        private void binaryMemory(object sender, EventArgs e)
+        {
+            isHex = false;
+            textBox2.Text = "";
+            memory.UpdateMemoryTextBox(textBox2, isHex);
+        }
+
+        private void hexMemory(object sender, EventArgs e)
+        {
+            isHex = true;
+            textBox2.Text = "";
+            memory.UpdateMemoryTextBox(textBox2, isHex);
         }
 
         //BreakPoints Start
@@ -101,5 +117,23 @@ namespace RSCSS
                 MessageBox.Show("Please enter a valid breakpoint.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        //RSCPU Visualization Steps
+        private void Start_RSCPU(object sender, EventArgs e)
+        {
+            cpu.Fetches(0);
+        }
+
+        int count = 1;
+        private void Next_RSCPU(object sender, EventArgs e)
+        {
+            if(count > 2)
+            {
+                count = 0;
+            }
+            cpu.Fetches(count);
+            count++;
+        }
+
     }
 }

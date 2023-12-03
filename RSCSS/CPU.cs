@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -9,283 +10,256 @@ namespace RSCSS
 {
     public class CPU
     {
-        public static Box theBox;
-
-        string currentRTL;
-        string realRTL;
-
-        public static int CU_HARDWIRED = 0;
-        public static int CU_MICROCODED = 1;
-
-        bool blank = false;
-        bool some = false;
-
-        public int registerAR;
-        public int registerPC;
-        public short registerDR;
-        public short registerTR;
-        public short registerIR;
-        public short registerR;
-        public short registerAC;
-        public byte flagZ;
-
-        public int simulationStartNumber;
-
-        public CU controlUnit;
-        public McodeControlUnit mcu;
-
-        public ALU aluBox;
-
-        private int controlUnitType = CU_HARDWIRED;
-        private Thread runner = null;
-
-        private bool cycleBreakNow = false;
-        private bool instructionBreakNow = false;
-        private bool canCycleBreak = false;
-        private bool canInstructionBreak = false;
-        private bool hasStarted = false;
-
-        private int counter1 = 0;
-        private int counter2 = 0;
-        private int tempcounter = 0;
-
-        private int memoryAddress;
-
-        private bool stallAnimationCounter;
-        private bool atBeginBreak;
-        private bool atCycleBegin;
-
-        private bool skipAnimation;
-
-        private bool jumpDecisionMade;
-        private bool jumpDecisionClockDisabled;
-
-        private bool irChanged;
-
-        private Breakpoints bp;
-        public Memory memoryBox;
-
-        int m = 0;
-        int n = 0;
-        int o = 0;
-
-        int m2 = 0;
-        int n2 = 0;
-        int o2 = 0;
-
-        int m3 = 0;
-        int n3 = 0;
-        int o3 = 0;
-
-        int m4 = 0;
-        int n4 = 0;
-        int o4 = 0;
-
-        int m5 = 0;
-        int n5 = 0;
-        int o5 = 0;
-
-        int m6 = 0;
-        int n6 = 0;
-        int o6 = 0;
-
-        int m7 = 0;
-        int n7 = 0;
-        int o7 = 0;
-
-        int m8 = 0;
-        int n8 = 0;
-        int o8 = 0;
-
-        int m9 = 0;
-        int n9 = 0;
-        int o9 = 0;
-
-        int m10 = 0;
-        int n10 = 0;
-        int o10 = 0;
-
-        int m11 = 0;
-        int n11 = 0;
-        int o11 = 0;
-
-        int m12 = 0;
-        int n12 = 0;
-        int o12 = 0;
-
-        int m13 = 0;
-        int n13 = 0;
-        int o13 = 0;
-
-        int m14 = 0;
-        int n14 = 0;
-        int o14 = 0;
-
-        int m15 = 0;
-        int n15 = 0;
-        int o15 = 0;
-
-        int m16 = 0;
-        int n16 = 0;
-        int o16 = 0;
-
-        int m17 = 0;
-        int n17 = 0;
-        int o17 = 0;
-
-        int m18 = 0;
-        int n18 = 0;
-        int o18 = 0;
-
-        int m19 = 0;
-        int n19 = 0;
-        int o19 = 0;
-
-        int m20 = 0;
-        int n20 = 0;
-        int o20 = 0;
-
-        int m21 = 0;
-        int n21 = 0;
-        int o21 = 0;
-
-        int m23 = 0;
-        int n23 = 0;
-        int o23 = 0;
-
-        int m24 = 0;
-        int n24 = 0;
-        int o24 = 0;
+        public System.Windows.Forms.Label Status_txt { get; set; }
+        public System.Windows.Forms.Label Rtl_txt { get; set; }
+        public System.Windows.Forms.Label Datamove_txt { get; set; }
+        public System.Windows.Forms.Label Ar_txt { get; set; }
+        public System.Windows.Forms.Label Pc_txt { get; set; }
+        public System.Windows.Forms.Label Dr_txt { get; set; }
+        public System.Windows.Forms.Label Tr_txt { get; set; }
+        public System.Windows.Forms.Label Ir_txt { get; set; }
+        public System.Windows.Forms.Label R_txt { get; set; }
+        public System.Windows.Forms.Label Ac_txt { get; set; }
+        public System.Windows.Forms.Label Z_txt { get; set; }
 
 
-        int dot1 = 0;
-        int dot2 = 0;
-        int dot3 = 0;
-        int dot4 = 0;
-        int dot5 = 0;
-        int dot6 = 0;
+        public long IOint = 0;
+        public string IO = "00000000";
+        private int ar = 0x00000000;
+        private int pc = 0x00000000;
+        private int dr = 0x00000000;
+        private int tr = 0x00000000;
+        private int ir = 0x00000000;
+        private int r = 0x00000000;
+        private int ac = 0x00000000;
+        private int z = 0;
 
-
-
-        public void clear()
+        public int Z
         {
-            dot1 = 0;
-            dot2 = 0;
-            dot3 = 0;
-            dot4 = 0;
-            dot5 = 0;
-            dot6 = 0;
-
-            m = 0;
-            n = 0;
-            o = 0;
-
-            m2 = 0;
-            n2 = 0;
-            o2 = 0;
-
-            m3 = 0;
-            n3 = 0;
-            o3 = 0;
-
-            m4 = 0;
-            n4 = 0;
-            o4 = 0;
-
-            m5 = 0;
-            n5 = 0;
-            o5 = 0;
-
-            m6 = 0;
-            n6 = 0;
-            o6 = 0;
-
-            m7 = 0;
-            n7 = 0;
-            o7 = 0;
-
-            m8 = 0;
-            n8 = 0;
-            o8 = 0;
-
-            m9 = 0;
-            n9 = 0;
-            o9 = 0;
-
-            m10 = 0;
-            n10 = 0;
-            o10 = 0;
-
-            m11 = 0;
-            n11 = 0;
-            o11 = 0;
-
-            m12 = 0;
-            n12 = 0;
-            o12 = 0;
-
-            m13 = 0;
-            n13 = 0;
-            o13 = 0;
-
-            m14 = 0;
-            n14 = 0;
-            o14 = 0;
-
-            m15 = 0;
-            n15 = 0;
-            o15 = 0;
-
-            m16 = 0;
-            n16 = 0;
-            o16 = 0;
-
-            m17 = 0;
-            n17 = 0;
-            o17 = 0;
-
-            m18 = 0;
-            n18 = 0;
-            o18 = 0;
-
-            m19 = 0;
-            n19 = 0;
-            o19 = 0;
-
-            m20 = 0;
-            n20 = 0;
-            o20 = 0;
-
-            m21 = 0;
-            n21 = 0;
-            o21 = 0;
-
-            m23 = 0;
-            n23 = 0;
-            o23 = 0;
-
-            m24 = 0;
-            n24 = 0;
-            o24 = 0;
-
-            currentRTL = "";
-            realRTL = "";
+            get { return z; }
+            set { z = value; }
         }
-        public void setControlUnitType(int cu)
+        public CPU(System.Windows.Forms.Label status_txt, System.Windows.Forms.Label rtl_txt, System.Windows.Forms.Label datamove_txt, System.Windows.Forms.Label ar_txt, System.Windows.Forms.Label pc_txt, System.Windows.Forms.Label dr_txt, System.Windows.Forms.Label tr_txt, System.Windows.Forms.Label ir_txt, System.Windows.Forms.Label r_txt, System.Windows.Forms.Label ac_txt, System.Windows.Forms.Label z_txt)
         {
-            controlUnitType = cu;
+            Status_txt = status_txt;
+            Rtl_txt = rtl_txt;
+            Datamove_txt = datamove_txt;
+            Ar_txt = ar_txt;
+            Pc_txt = pc_txt;
+            Dr_txt = dr_txt;
+            Tr_txt = tr_txt;
+            Ir_txt = ir_txt;
+            R_txt = r_txt;
+            Ac_txt = ac_txt;
+            Z_txt = z_txt;
         }
 
-        public int getControlUnitType()
+        public string SpaceInserter(int reg, string regname)
         {
-            return (controlUnitType);
+            string binaryString;
+            if (regname == "ar" || regname == "pc")
+            {
+                // Convert the integer to a binary string with spaces every 4 digits
+                binaryString = Convert.ToString(reg, 2).PadLeft(16, '0');
+            }
+            else if (regname == "z")
+            {
+                // Convert the integer to a binary string with spaces every 4 digits
+                binaryString = Convert.ToString(reg);
+            }
+            else
+            {
+                // Convert the integer to a binary string with spaces every 4 digits
+                binaryString = Convert.ToString(reg, 2).PadLeft(8, '0');
+            }
+
+            // Insert spaces after every 4 digits
+            int groupSize = 4;
+            for (int i = groupSize; i < binaryString.Length; i += (groupSize + 1))
+            {
+                binaryString = binaryString.Insert(i, " ");
+            }
+            return binaryString;
         }
 
-        public Memory GetMemory()
+        public void Fetches(int num)
         {
-            return (memoryBox);
+            switch (num)
+            {
+                case 0:
+                    Status_txt.Text = "Running";
+                    Rtl_txt.Text = "Fetch 1";
+                    Datamove_txt.Text = "AR <- PC";
+                    Ar_txt.Text = SpaceInserter(ar, "ar");
+                    Pc_txt.Text = SpaceInserter(pc, "pc");
+                    Dr_txt.Text = SpaceInserter(dr, "dr");
+                    Tr_txt.Text = SpaceInserter(tr, "tr");
+                    Ir_txt.Text = SpaceInserter(ir, "ir");
+                    R_txt.Text = SpaceInserter(r, "r");
+                    Ac_txt.Text = SpaceInserter(ac, "ac");
+                    Z_txt.Text = SpaceInserter(z, "z");
+                    break;
+                case 1:
+                    //Addition
+                    pc += 1;
+                    dr += 1;
+
+                    Rtl_txt.Text = "Fetch 2";
+                    Datamove_txt.Text = "DR <- M, PC <- PC+1";
+                    Ar_txt.Text = SpaceInserter(ar, "ar");
+                    Pc_txt.Text = SpaceInserter(pc, "pc");
+                    Dr_txt.Text = SpaceInserter(dr, "dr");
+                    Tr_txt.Text = SpaceInserter(tr, "tr");
+                    Ir_txt.Text = SpaceInserter(ir, "ir");
+                    R_txt.Text = SpaceInserter(r, "r");
+                    Ac_txt.Text = SpaceInserter(ac, "ac");
+                    Z_txt.Text = SpaceInserter(z, "z");
+                    break;
+                case 2:
+                    Rtl_txt.Text = "Fetch 3";
+                    Datamove_txt.Text = "IR <- DR, AR <- PC";
+                    Ar_txt.Text = SpaceInserter(ar + 1, "ar");
+                    Pc_txt.Text = SpaceInserter(pc , "pc");
+                    Dr_txt.Text = SpaceInserter(dr , "dr");
+                    Tr_txt.Text = SpaceInserter(tr, "tr");
+                    Ir_txt.Text = SpaceInserter(ir + 1, "ir");
+                    R_txt.Text = SpaceInserter(r, "r");
+                    Ac_txt.Text = SpaceInserter(ac, "ac");
+                    Z_txt.Text = SpaceInserter(z, "z");
+                    break;
+                case 3:
+                    //ControlSpace();
+                    break;
+                default:
+                    return;
+            }
+        }
+        /*//Reads Instructions and Loops through it individually
+        public void ControlSpace(int[])
+        {
+            //Move Through Instructions in
+            for (int i = 0; i < microcode.Length; i++)
+            {
+                ExecuteInstruction(microcode[i]);
+            }
+        }*/
+        //NO Operand Instructions
+        public void NOP() {
+            Rtl_txt.Text = "NOP";
+            Datamove_txt.Text = "No Operation";
+        }
+        public void MVAC() {
+            r = ac;
+            Rtl_txt.Text = "MVAC";
+            Datamove_txt.Text = "R <- AC";
+            R_txt.Text = SpaceInserter(r, "r");
+        }
+        public void MOVR() {
+            ac = r;
+            Rtl_txt.Text = "MOVR";
+            Datamove_txt.Text = "AC <- R";
+            Ac_txt.Text = SpaceInserter(ac, "ac");
         }
 
+        //ALU
+        public void ADD() {
+            ac = ac + r;
+
+            // Set z based on the result
+            z = (ac == 0) ? 1 : 0;
+
+            Rtl_txt.Text = "ADD";
+            Datamove_txt.Text = "AC <- AC + R";
+            Ac_txt.Text = SpaceInserter(ac, "ac");
+            Z_txt.Text = SpaceInserter(z, "z");
+        }
+        public void SUB() {
+            ac = ac - r;
+
+            // Set z based on the result
+            z = (ac == 0) ? 1 : 0;
+
+            Rtl_txt.Text = "SUB";
+            Datamove_txt.Text = "AC <- AC - R";
+            Ac_txt.Text = SpaceInserter(ac, "ac");
+            Z_txt.Text = SpaceInserter(z, "z");
+        }
+        public void INAC() {
+            ac = ac + 1;
+
+            // Set z based on the result
+            z = (ac == 0) ? 1 : 0;
+
+            Rtl_txt.Text = "INAC";
+            Datamove_txt.Text = "AC <- AC + 1";
+            Ac_txt.Text = SpaceInserter(ac, "ac");
+            Z_txt.Text = SpaceInserter(z, "z");
+        }
+        public void CLAC() {
+            ac = 0;
+            z = 1;
+
+            Rtl_txt.Text = "CLAC";
+            Datamove_txt.Text = "AC <- 0, Z <- 1";
+            Ac_txt.Text = SpaceInserter(ac, "ac");
+            Z_txt.Text = SpaceInserter(z, "z");
+        }
+        public void AND() {
+            // Perform bitwise AND on ac and r
+            ac = ac & r;
+
+            // Set z based on the result
+            z = (ac == 0) ? 1 : 0;
+
+            // Update UI and status
+            Rtl_txt.Text = "AND";
+            Datamove_txt.Text = "AC <- AC & r";
+            Ac_txt.Text = SpaceInserter(ac, "ac");
+            Z_txt.Text = SpaceInserter(z, "z");
+        }
+        public void OR() {
+            ac = ac | 1;
+            z = (ac == 0) ? 1 : 0;
+
+            Rtl_txt.Text = "OR";
+            Datamove_txt.Text = "AC <- AC | r";
+            Ac_txt.Text = SpaceInserter(ac, "ac");
+            Z_txt.Text = SpaceInserter(z, "z");
+        }   
+        public void XOR() {
+            // Perform bitwise XOR on ac and 1
+            ac = ac ^ 1;
+
+            // Set z based on the result
+            z = (ac == 0) ? 1 : 0;
+
+            // Update UI and status
+            Rtl_txt.Text = "XOR";
+            Datamove_txt.Text = "AC <- AC ^ r";
+            Ac_txt.Text = SpaceInserter(ac, "ac");
+            Z_txt.Text = SpaceInserter(z, "z");
+        }
+        public void NOT() {
+            // Perform bitwise NOT on ac
+            ac = ~ac;
+
+            // Set z based on the result
+            z = (ac == 0) ? 1 : 0;
+
+            // Update UI and status
+            Rtl_txt.Text = "NOT";
+            Datamove_txt.Text = "AC <- ~AC";
+            Ac_txt.Text = SpaceInserter(ac, "ac");
+            Z_txt.Text = SpaceInserter(z, "z");
+        }
+        //public void END() { }
+
+        //One Operand Instructions
+        public void LDAC() { }
+        public void STAC() { }
+        public void JUMP() { }
+        public void JMPZ() { }
+        public void JPNZ() { }
     }
 
 }

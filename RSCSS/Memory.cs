@@ -35,11 +35,11 @@ namespace RSCSS
             }
 
             contents[address] = data;
-            if (CPU.theBox != null)
+            if (CPUBox!= null)
             {
                 // Access the property or call the method on CPU.theBox
-                CPU.theBox.IOint = contents[MEMORY_SIZE];
-                CPU.theBox.IO = AssemblyInstructions.ToNumberString(CPU.theBox.IOint, 2, 8);
+                CPUBox.IOint = contents[MEMORY_SIZE];
+                CPUBox.IO = AssemblyInstructions.ToNumberString(CPUBox.IOint, 2, 8);
             }
             else
             {
@@ -110,13 +110,20 @@ namespace RSCSS
             return Write(address, data);
         }
 
-        public void UpdateMemoryTextBox(TextBox textBox)
+        public void UpdateMemoryTextBox(TextBox textBox, bool isHex)
         {
             StringBuilder sb = new StringBuilder();
 
             for (int i = 0; i < MEMORY_SIZE; i++)
             {
-                sb.AppendFormat("{0} : {1}", i, Convert.ToString(contents[i] & 0xFF, 2).PadLeft(8, '0'));
+                if (isHex)
+                {
+                    sb.AppendFormat("{0} : {1}", i, Convert.ToString(contents[i], 16).PadLeft(2, '0'));
+                }
+                else
+                {
+                    sb.AppendFormat("{0} : {1}", i, Convert.ToString(contents[i] & 0xFF, 2).PadLeft(8, '0'));
+                }
 
                 sb.AppendLine();
 

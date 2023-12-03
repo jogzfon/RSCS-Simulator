@@ -305,8 +305,11 @@ namespace RSCSS
             {
                 return 0;
             }
-            else if (mnemonic == LDAC || mnemonic == STAC || mnemonic == JUMP ||
-                mnemonic == JMPZ || mnemonic == JPNZ)
+            else if (mnemonic == LDAC || 
+                mnemonic == STAC ||
+                mnemonic == JUMP ||
+                mnemonic == JMPZ || 
+                mnemonic == JPNZ)
             {
                 return 1;
             }

@@ -39,19 +39,19 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.ir_txt = new System.Windows.Forms.Label();
+            this.r_txt = new System.Windows.Forms.Label();
+            this.z_txt = new System.Windows.Forms.Label();
+            this.ac_txt = new System.Windows.Forms.Label();
+            this.tr_txt = new System.Windows.Forms.Label();
+            this.dr_txt = new System.Windows.Forms.Label();
+            this.pc_txt = new System.Windows.Forms.Label();
+            this.ar_txt = new System.Windows.Forms.Label();
+            this.status_txt = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
+            this.memory_txt = new System.Windows.Forms.Label();
             this.memLocation = new System.Windows.Forms.TextBox();
             this.btn_memory = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -62,6 +62,12 @@
             this.label23 = new System.Windows.Forms.Label();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.breakBox = new System.Windows.Forms.ListBox();
+            this.binaryBtn = new System.Windows.Forms.Button();
+            this.hexBtn = new System.Windows.Forms.Button();
+            this.rtl_txt = new System.Windows.Forms.Label();
+            this.starter = new System.Windows.Forms.Button();
+            this.next_instruction = new System.Windows.Forms.Button();
+            this.datamove_txt = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // InstructionCode
@@ -79,10 +85,10 @@
             // 
             this.textBox2.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.textBox2.ForeColor = System.Drawing.SystemColors.Window;
-            this.textBox2.Location = new System.Drawing.Point(408, 130);
+            this.textBox2.Location = new System.Drawing.Point(408, 178);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(600, 450);
+            this.textBox2.Size = new System.Drawing.Size(600, 402);
             this.textBox2.TabIndex = 1;
             // 
             // button1
@@ -177,95 +183,95 @@
             this.label8.TabIndex = 7;
             this.label8.Text = "IR:";
             // 
-            // label12
+            // ir_txt
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(779, 19);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(105, 25);
-            this.label12.TabIndex = 11;
-            this.label12.Text = "0000 0000";
+            this.ir_txt.AutoSize = true;
+            this.ir_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ir_txt.Location = new System.Drawing.Point(779, 19);
+            this.ir_txt.Name = "ir_txt";
+            this.ir_txt.Size = new System.Drawing.Size(105, 25);
+            this.ir_txt.TabIndex = 11;
+            this.ir_txt.Text = "0000 0000";
             // 
-            // label9
+            // r_txt
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(779, 44);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(105, 25);
-            this.label9.TabIndex = 12;
-            this.label9.Text = "0000 0000";
+            this.r_txt.AutoSize = true;
+            this.r_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.r_txt.Location = new System.Drawing.Point(779, 44);
+            this.r_txt.Name = "r_txt";
+            this.r_txt.Size = new System.Drawing.Size(105, 25);
+            this.r_txt.TabIndex = 12;
+            this.r_txt.Text = "0000 0000";
             // 
-            // label10
+            // z_txt
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(779, 94);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(105, 25);
-            this.label10.TabIndex = 14;
-            this.label10.Text = "0000 0000";
+            this.z_txt.AutoSize = true;
+            this.z_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.z_txt.Location = new System.Drawing.Point(779, 94);
+            this.z_txt.Name = "z_txt";
+            this.z_txt.Size = new System.Drawing.Size(105, 25);
+            this.z_txt.TabIndex = 14;
+            this.z_txt.Text = "0000 0000";
             // 
-            // label11
+            // ac_txt
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(779, 69);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(105, 25);
-            this.label11.TabIndex = 13;
-            this.label11.Text = "0000 0000";
+            this.ac_txt.AutoSize = true;
+            this.ac_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ac_txt.Location = new System.Drawing.Point(779, 69);
+            this.ac_txt.Name = "ac_txt";
+            this.ac_txt.Size = new System.Drawing.Size(105, 25);
+            this.ac_txt.TabIndex = 13;
+            this.ac_txt.Text = "0000 0000";
             // 
-            // label13
+            // tr_txt
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(453, 94);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(105, 25);
-            this.label13.TabIndex = 18;
-            this.label13.Text = "0000 0000";
+            this.tr_txt.AutoSize = true;
+            this.tr_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tr_txt.Location = new System.Drawing.Point(453, 94);
+            this.tr_txt.Name = "tr_txt";
+            this.tr_txt.Size = new System.Drawing.Size(105, 25);
+            this.tr_txt.TabIndex = 18;
+            this.tr_txt.Text = "0000 0000";
             // 
-            // label14
+            // dr_txt
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(453, 69);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(105, 25);
-            this.label14.TabIndex = 17;
-            this.label14.Text = "0000 0000";
+            this.dr_txt.AutoSize = true;
+            this.dr_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dr_txt.Location = new System.Drawing.Point(453, 69);
+            this.dr_txt.Name = "dr_txt";
+            this.dr_txt.Size = new System.Drawing.Size(105, 25);
+            this.dr_txt.TabIndex = 17;
+            this.dr_txt.Text = "0000 0000";
             // 
-            // label15
+            // pc_txt
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(453, 44);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(203, 25);
-            this.label15.TabIndex = 16;
-            this.label15.Text = "0000 0000 0000 0000";
+            this.pc_txt.AutoSize = true;
+            this.pc_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pc_txt.Location = new System.Drawing.Point(453, 44);
+            this.pc_txt.Name = "pc_txt";
+            this.pc_txt.Size = new System.Drawing.Size(203, 25);
+            this.pc_txt.TabIndex = 16;
+            this.pc_txt.Text = "0000 0000 0000 0000";
             // 
-            // label16
+            // ar_txt
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(453, 19);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(203, 25);
-            this.label16.TabIndex = 15;
-            this.label16.Text = "0000 0000 0000 0000";
+            this.ar_txt.AutoSize = true;
+            this.ar_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ar_txt.Location = new System.Drawing.Point(453, 19);
+            this.ar_txt.Name = "ar_txt";
+            this.ar_txt.Size = new System.Drawing.Size(203, 25);
+            this.ar_txt.TabIndex = 15;
+            this.ar_txt.Text = "0000 0000 0000 0000";
             // 
-            // label17
+            // status_txt
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(241, 19);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(86, 25);
-            this.label17.TabIndex = 20;
-            this.label17.Text = "Stopped";
+            this.status_txt.AutoSize = true;
+            this.status_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status_txt.Location = new System.Drawing.Point(241, 19);
+            this.status_txt.Name = "status_txt";
+            this.status_txt.Size = new System.Drawing.Size(86, 25);
+            this.status_txt.TabIndex = 20;
+            this.status_txt.Text = "Stopped";
             // 
             // label18
             // 
@@ -297,15 +303,15 @@
             this.label19.TabIndex = 22;
             this.label19.Text = "Current Memory Location:";
             // 
-            // label21
+            // memory_txt
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(288, 94);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(23, 25);
-            this.label21.TabIndex = 23;
-            this.label21.Text = "0";
+            this.memory_txt.AutoSize = true;
+            this.memory_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.memory_txt.Location = new System.Drawing.Point(288, 94);
+            this.memory_txt.Name = "memory_txt";
+            this.memory_txt.Size = new System.Drawing.Size(23, 25);
+            this.memory_txt.TabIndex = 23;
+            this.memory_txt.Text = "0";
             // 
             // memLocation
             // 
@@ -417,11 +423,85 @@
             this.breakBox.Size = new System.Drawing.Size(202, 148);
             this.breakBox.TabIndex = 34;
             // 
+            // binaryBtn
+            // 
+            this.binaryBtn.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.binaryBtn.Font = new System.Drawing.Font("Stencil", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.binaryBtn.Location = new System.Drawing.Point(771, 178);
+            this.binaryBtn.Name = "binaryBtn";
+            this.binaryBtn.Size = new System.Drawing.Size(113, 33);
+            this.binaryBtn.TabIndex = 35;
+            this.binaryBtn.Text = "Binary";
+            this.binaryBtn.UseVisualStyleBackColor = false;
+            this.binaryBtn.Click += new System.EventHandler(this.binaryMemory);
+            // 
+            // hexBtn
+            // 
+            this.hexBtn.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.hexBtn.Font = new System.Drawing.Font("Stencil", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hexBtn.Location = new System.Drawing.Point(890, 178);
+            this.hexBtn.Name = "hexBtn";
+            this.hexBtn.Size = new System.Drawing.Size(113, 33);
+            this.hexBtn.TabIndex = 36;
+            this.hexBtn.Text = "Hex";
+            this.hexBtn.UseVisualStyleBackColor = false;
+            this.hexBtn.Click += new System.EventHandler(this.hexMemory);
+            // 
+            // rtl_txt
+            // 
+            this.rtl_txt.AutoSize = true;
+            this.rtl_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtl_txt.Location = new System.Drawing.Point(266, 44);
+            this.rtl_txt.Name = "rtl_txt";
+            this.rtl_txt.Size = new System.Drawing.Size(61, 25);
+            this.rtl_txt.TabIndex = 37;
+            this.rtl_txt.Text = "Fetch";
+            // 
+            // starter
+            // 
+            this.starter.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.starter.Font = new System.Drawing.Font("Stencil", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.starter.Location = new System.Drawing.Point(771, 599);
+            this.starter.Name = "starter";
+            this.starter.Size = new System.Drawing.Size(113, 50);
+            this.starter.TabIndex = 38;
+            this.starter.Text = "Start";
+            this.starter.UseVisualStyleBackColor = false;
+            this.starter.Click += new System.EventHandler(this.Start_RSCPU);
+            // 
+            // next_instruction
+            // 
+            this.next_instruction.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.next_instruction.Font = new System.Drawing.Font("Stencil", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.next_instruction.Location = new System.Drawing.Point(890, 599);
+            this.next_instruction.Name = "next_instruction";
+            this.next_instruction.Size = new System.Drawing.Size(113, 50);
+            this.next_instruction.TabIndex = 39;
+            this.next_instruction.Text = "Next";
+            this.next_instruction.UseVisualStyleBackColor = false;
+            this.next_instruction.Click += new System.EventHandler(this.Next_RSCPU);
+            // 
+            // datamove_txt
+            // 
+            this.datamove_txt.AutoSize = true;
+            this.datamove_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datamove_txt.Location = new System.Drawing.Point(81, 69);
+            this.datamove_txt.Name = "datamove_txt";
+            this.datamove_txt.Size = new System.Drawing.Size(61, 25);
+            this.datamove_txt.TabIndex = 40;
+            this.datamove_txt.Text = "Fetch";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1416, 673);
+            this.Controls.Add(this.datamove_txt);
+            this.Controls.Add(this.next_instruction);
+            this.Controls.Add(this.starter);
+            this.Controls.Add(this.rtl_txt);
+            this.Controls.Add(this.hexBtn);
+            this.Controls.Add(this.binaryBtn);
             this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.breakLine);
@@ -431,19 +511,19 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btn_memory);
             this.Controls.Add(this.memLocation);
-            this.Controls.Add(this.label21);
+            this.Controls.Add(this.memory_txt);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label20);
-            this.Controls.Add(this.label17);
+            this.Controls.Add(this.status_txt);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label12);
+            this.Controls.Add(this.tr_txt);
+            this.Controls.Add(this.dr_txt);
+            this.Controls.Add(this.pc_txt);
+            this.Controls.Add(this.ar_txt);
+            this.Controls.Add(this.z_txt);
+            this.Controls.Add(this.ac_txt);
+            this.Controls.Add(this.r_txt);
+            this.Controls.Add(this.ir_txt);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
@@ -476,19 +556,19 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label ir_txt;
+        private System.Windows.Forms.Label r_txt;
+        private System.Windows.Forms.Label z_txt;
+        private System.Windows.Forms.Label ac_txt;
+        private System.Windows.Forms.Label tr_txt;
+        private System.Windows.Forms.Label dr_txt;
+        private System.Windows.Forms.Label pc_txt;
+        private System.Windows.Forms.Label ar_txt;
+        private System.Windows.Forms.Label status_txt;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label memory_txt;
         private System.Windows.Forms.TextBox memLocation;
         private System.Windows.Forms.Button btn_memory;
         private System.Windows.Forms.Button button2;
@@ -499,6 +579,12 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.ListBox breakBox;
+        private System.Windows.Forms.Button binaryBtn;
+        private System.Windows.Forms.Button hexBtn;
+        private System.Windows.Forms.Label rtl_txt;
+        private System.Windows.Forms.Button starter;
+        private System.Windows.Forms.Button next_instruction;
+        private System.Windows.Forms.Label datamove_txt;
     }
 }
 
